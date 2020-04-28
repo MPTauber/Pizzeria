@@ -21,7 +21,7 @@ class Pizza(models.Model):
 
 class Topping(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
-    name = models.TextField()
+    name = models.TextField(max_length=50) # Toppings shouldn't be longer than 50 characters
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
