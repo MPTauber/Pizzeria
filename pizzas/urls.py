@@ -18,5 +18,5 @@ urlpatterns = [
     # The third argument provides the name " index" for this URL pattern to refer to it later
     path("", views.index, name="index"),
     path('pizza_choices', views.pizza_choices, name='pizza_choices'),
-    path('pizza_choices/<int:pizza_id>/', views.pizza_choice, name='pizza_choice')
+    path('pizza_choices/<int:pizza_id>/', views.pizza_choice, name='pizza_choice'),
 ]
