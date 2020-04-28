@@ -12,3 +12,10 @@ def pizza_choices(request):
     pizza_choices = Pizza.objects.order_by('name') # alphabetical order
     context = {'pizza_choices':pizza_choices}
     return render(request, 'pizzas/pizza_choices.html', context)
+
+def pizza_choice(request, pizza_id):
+    pizza_choice = Pizza.objects.get(id=pizza_id)
+    toppings = pizza_choice.topping_set.order_by('name')
+    context = {'pizza_choice':pizza_choice, 'toppings':toppings}
+
+    return render(request, 'pizzas/pizza_choice.html', context)
