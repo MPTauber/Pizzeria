@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Pizza
+
+from .forms import ReviewForm
 
 # Create your views here.
 def index(request):
@@ -21,4 +23,19 @@ def pizza_choice(request, pizza_id):
 
     return render(request, 'pizzas/pizza_choice.html', context)
 
+def new_review(request, pizza_id):
+    pizza_choice = Pizza.objects.get(id=pizza_id)
+    if request.method != 'POST':
+        form = ReviewForm()
+    else:
+        form= ReviewForm(data=request.POST)
 
+        if form.is_valid():
+            new_review = form.save(commit=False)
+            new_review.pizza_choice = pizza_choice
+            new_review.save()
+            form.save()
+            return redirect('pizzas:pizza_choice', pizza_id=pizza_id)
+
+    context = {'form': form, 'pizza_choice':pizza_choice}
+    return render(request, 'pizzas/new_review.html', context)

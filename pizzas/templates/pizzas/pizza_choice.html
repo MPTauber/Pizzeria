@@ -36,4 +36,7 @@
         {% endfor %}
     </ul>
 
+    <p>
+        <a href="{% url 'pizzas:new_review' pizza.id %}">Add new review</a>
+    </p>
     {% endblock content %}
