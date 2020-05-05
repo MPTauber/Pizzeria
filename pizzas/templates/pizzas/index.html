@@ -1,7 +1,18 @@
 {%extends "pizzas/base.html" %}
 
+<style>
+    body {
+      background-image: url('background.jpg');
+    }
+    </style>
+
 {% block content %}
-    <p>
+    <h3 style = "font-family:georgia,garamond,serif;font-size:23px;font-style:bold;">
+        Welcome to the Pizzeria Webapp!</h3>
+    <p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
         Pizzeria is a web app that let's you see available pizzas, find out their ingredients, and review or comment on each pizza.
     </p>
-{% endblock content %}
+
+{% endblock content %} 
+
+

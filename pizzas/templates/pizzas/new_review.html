@@ -4,7 +4,8 @@
 
         <p><a href="{% url 'pizzas:pizza_choice' pizza_choice.id %}"">{{ pizza_choice }}</a></p>
 
-            <p>Add a new review:</p>
+            <p style = "font-family:georgia,garamond,serif;font-size:23px;font-style:bold;">
+                Add a new review:</p>
 
     <form action="{% url 'pizzas:new_review' pizza_choice.id %}" method='post'>
         

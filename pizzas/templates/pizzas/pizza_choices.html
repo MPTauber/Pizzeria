@@ -2,7 +2,8 @@
 
 {% block content %}
     
-    <p>Pizza Choices</p>
+    <p style = "font-family:georgia,garamond,serif;font-size:23px;font-style:bold;">
+        Pizza Choices</p>
 
     <!--In standard HtML, a bulleted list is called an unordered list
         and is indicated by the tags <ul></ul>-->
@@ -13,11 +14,12 @@
 
         <!--to print a variable in atemplate, wrap the
             variable name in double braces.-->
-            <li>
+            <li style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
                 <a href="{% url 'pizzas:pizza_choice' pizza.id %}">{{ pizza }}</a>
             </li>
         {% empty %}
-            <li>No Pizzas have been added yet.</li>
+            <li style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+                No Pizzas have been added yet.</li>
         {% endfor %}
     </ul>
 
