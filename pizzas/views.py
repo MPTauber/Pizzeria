@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
-from .models import Pizza
+from .models import Pizza, Review
+
+from .forms import ReviewForm
 
 from .forms import ReviewForm
 
@@ -38,4 +40,3 @@ def new_review(request, pizza_id):
 
     context = {'form': form, 'pizza_choice':pizza_choice}
     return render(request, 'pizzas/new_review.html', context)
-
