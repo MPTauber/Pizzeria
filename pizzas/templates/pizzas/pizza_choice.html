@@ -1,0 +1,41 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+    <p>Pizza Choice: {{ pizza_choice }}</p>
+
+    <ul>
+
+        {% for topping in toppings %}
+        <li>
+
+            <p>{{ topping.name|linebreaks }}</p>
+
+        </li>
+        {% empty %}
+            <li>There are no toppings for your pizza choice yet.</li>
+        {% endfor %}
+
+    </ul>
+
+    <p>Reviews for this Pizza:</p>
+
+    <ul>
+
+        {% for review in reviews %}
+        <li>
+            <!--a vertical line | represents a template filter
+                A function that modifies the value in a template variable-->
+            <p>{{ review.date_added|date:'M d, Y H:i' }} </p>
+            <!-- the filter linebreaks ensures that long text entries include line breaks-->
+            <p>{{ review.review|linebreaks }} </p>
+        </li>
+        {% empty %} <!-- if the list is empty then display message-->
+            <li> There are no reviews for this pizza yet.</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{% url 'pizzas:new_review' pizza_choice.id %}">Add new review</a>
+    </p>
+    {% endblock content %}

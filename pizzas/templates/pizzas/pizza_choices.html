@@ -13,7 +13,9 @@
 
         <!--to print a variable in atemplate, wrap the
             variable name in double braces.-->
-            <li>{{ pizza }}</li>
+            <li>
+                <a href="{% url 'pizzas:pizza_choice' pizza.id %}">{{ pizza }}</a>
+            </li>
         {% empty %}
             <li>No Pizzas have been added yet.</li>
         {% endfor %}
