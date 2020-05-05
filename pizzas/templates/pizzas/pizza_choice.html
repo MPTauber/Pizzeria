@@ -29,9 +29,6 @@
             <p>{{ review.date_added|date:'M d, Y H:i' }} </p>
             <!-- the filter linebreaks ensures that long text entries include line breaks-->
             <p>{{ review.review|linebreaks }} </p>
-            <p>
-                <a href="{% url 'pizzas:edit_review' review.id %}">Edit review</a>
-            </p>
         </li>
         {% empty %} <!-- if the list is empty then display message-->
             <li> There are no reviews for this pizza yet.</li>
@@ -39,6 +36,6 @@
     </ul>
 
     <p>
-        <a href="{% url 'pizzas:new_review' pizza.id %}">Add new review</a>
+        <a href="{% url 'pizzas:new_review' pizza_choice.id %}">Add new review</a>
     </p>
     {% endblock content %}

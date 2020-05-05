@@ -15,7 +15,7 @@ for pizza in pizzas:
 # If we know the ID of an object we can use the get() method to
 # examine any attributes the object has.
 
-t = Pizza.objects.get(id=1) # Chess has ID of 1 (seen by executing the above for-loop)
+t = Pizza.objects.get(id=1) # Pizza has ID of 1 (seen by executing the above for-loop)
 print(t.name)
 print(t.date_added)
 

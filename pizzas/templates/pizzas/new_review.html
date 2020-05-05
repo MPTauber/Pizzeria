@@ -6,7 +6,7 @@
 
             <p>Add a new review:</p>
 
-    <form action="{% url 'pizzas:new_review' pizza.id %}" method='post'>
+    <form action="{% url 'pizzas:new_review' pizza_choice.id %}" method='post'>
         
         {% csrf_token %}
 
