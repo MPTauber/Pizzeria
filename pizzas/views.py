@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Pizza, Review
+from .models import Pizza
 
 from .forms import ReviewForm
 
@@ -8,7 +8,6 @@ from .forms import ReviewForm
 def index(request):
     """The home page for Pizzeria."""
     return render(request, 'pizzas/index.html')
-
 
 def pizza_choices(request):
     pizza_choices = Pizza.objects.order_by('name') # alphabetical order
@@ -39,3 +38,4 @@ def new_review(request, pizza_id):
 
     context = {'form': form, 'pizza_choice':pizza_choice}
     return render(request, 'pizzas/new_review.html', context)
+

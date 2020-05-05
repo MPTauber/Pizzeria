@@ -5,7 +5,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Pizzeria.settings")
 import django
 django.setup()
 
-from pizzas.models import Pizza
+from pizzas.models import Pizza, Review
 
 pizzas = Pizza.objects.all()
 
@@ -29,3 +29,7 @@ toppings = t.topping_set.all() # t represents Chess cause we set it as id 1
 
 for topping in toppings:
     print(topping)
+
+r = Review.objects.get(id=2) # Pizza has ID of 1 (seen by executing the above for-loop)
+print(r.review)
+print(r.date_added)
